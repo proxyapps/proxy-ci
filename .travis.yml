@@ -24,7 +24,7 @@ env:
 before_install:
  - git clone --depth 1 https://github.com/spack/spack
  - source spack/share/spack/setup-env.sh
- - cp spack/{share/spack/qa/configuration,etc}/spack/packages.yaml
+ - cp spack/{share/spack/qa/configuration,etc/spack}/packages.yaml
 
 script:
   - spack install -v ${APP}
