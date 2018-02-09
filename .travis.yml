@@ -4,8 +4,7 @@ addons:
   apt:
     packages:
       - gfortran
-      - cmake
-
+      
 env:
   matrix:
     - APP=amg
@@ -26,7 +25,8 @@ before_install:
  - source spack/share/spack/setup-env.sh
 
 script:
-  - spack install -v ${APP}
+  - spack install -j2 --only dependencies ${APP}
+  - spack install -j2 -v ${APP}
 
 cache:
   ccache: true
