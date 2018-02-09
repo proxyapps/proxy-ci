@@ -4,7 +4,15 @@ addons:
   apt:
     packages:
       - gfortran
+      - mercurial
+      - graphviz
       - cmake
+      - gnupg2
+      - r-base
+      - r-base-core
+      - r-base-dev
+      - perl
+      - perl-base
 
 env:
   matrix:
