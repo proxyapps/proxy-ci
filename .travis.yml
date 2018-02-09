@@ -7,7 +7,18 @@ addons:
 
 env:
   matrix:
+    - APP=amg
+# no tensorflow    - APP=candle-benchmarks
+    - APP=comd
+    - APP=laghos
+    - APP=macsio
+    - APP=miniamr
+    - APP=minife
+    - APP=minitri
     - APP=nekbone
+    - APP=sw4lite
+    - APP=swfft
+    - APP=xsbench
 
 before_install:
  - git clone --depth 1 https://github.com/spack/spack
