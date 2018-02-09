@@ -27,7 +27,7 @@ before_install:
  - cp spack/{share/spack/qa/configuration,etc}/spack/packages.yaml
 
 script:
-  - spack install -j2 -v ${APP}
+  - spack install -v ${APP}
 
 cache:
   ccache: true
