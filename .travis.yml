@@ -1,0 +1,23 @@
+language: cpp
+
+addons:
+  apt:
+    packages:
+      - gfortran
+
+env:
+  matrix:
+    - APP=nekbone
+
+before_install:
+ - git clone --depth 1 https://github.com/spack/spack
+ - source spack/share/spack/setup-env.sh
+
+script:
+  - spack install -v ${APP}
+
+cache:
+  ccache: true
+
+compiler:
+  - gcc
