@@ -17,7 +17,7 @@ addons:
 env:
   matrix:
     - APP=amg
-# no tensorflow    - APP=candle-benchmarks
+    - APP=candle-benchmarks
     - APP=comd
     - APP=laghos
     - APP=macsio
@@ -28,6 +28,84 @@ env:
     - APP=sw4lite
     - APP=swfft
     - APP=xsbench
+
+    - APP=amg2013
+    - APP=amr-exp-parabolic
+    - APP=aspa
+    - APP=branson
+    - APP=clamr
+    - APP=cloverleaf
+    - APP=cloverleaf3d
+    - APP=cns-nospec
+    - APP=coevp
+    - APP=cohmm
+    - APP=cosp2
+    - APP=ebms
+    - APP=exampm
+    - APP=exasp2
+    - APP=hacckernels
+    - APP=hpccg
+    - APP=hpgmg
+    - APP=kripke
+    - APP=lcals
+    - APP=lulesh
+    - APP=miniaero
+    - APP=miniamr
+    - APP=minighost
+    - APP=minimd
+    - APP=miniqmc
+    - APP=minismac2d
+    - APP=minixyce
+    - APP=nut
+    - APP=openmc
+    - APP=pathfinder
+    - APP=pennant
+    - APP=rsbench
+    - APP=simplemoc
+    - APP=smc
+    - APP=snap
+    - APP=snbone
+    - APP=tealeaf
+
+matrix:
+  allow_failures:
+    - env: APP=amg2013
+    - env: APP=amr-exp-parabolic
+    - env: APP=aspa
+    - env: APP=branson
+    - env: APP=clamr
+    - env: APP=cloverleaf
+    - env: APP=cloverleaf3d
+    - env: APP=cns-nospec
+    - env: APP=coevp
+    - env: APP=cohmm
+    - env: APP=cosp2
+    - env: APP=ebms
+    - env: APP=exampm
+    - env: APP=exasp2
+    - env: APP=hacckernels
+    - env: APP=hpccg
+    - env: APP=hpgmg
+    - env: APP=kripke
+    - env: APP=lcals
+    - env: APP=lulesh
+    - env: APP=miniaero
+    - env: APP=miniamr
+    - env: APP=minighost
+    - env: APP=minimd
+    - env: APP=miniqmc
+    - env: APP=minismac2d
+    - env: APP=minixyce
+    - env: APP=nut
+    - env: APP=openmc
+    - env: APP=pathfinder
+    - env: APP=pennant
+    - env: APP=rsbench
+    - env: APP=simplemoc
+    - env: APP=smc
+    - env: APP=snap
+    - env: APP=snbone
+    - env: APP=tealeaf
 
 before_install:
  - git clone --depth 1 https://github.com/spack/spack
