@@ -13,11 +13,12 @@ addons:
       - r-base-dev
       - perl
       - perl-base
+      - libopenmpi-dev
 
 env:
   matrix:
     - APP=amg
-    - APP=candle-benchmarks
+# no tensorflow in spack    - APP=candle-benchmarks 
     - APP=comd
     - APP=laghos
     - APP=macsio
@@ -109,11 +110,15 @@ matrix:
 
 before_install:
  - git clone --depth 1 https://github.com/spack/spack
+ - wget https://github.com/spack/spack/pull/7255.patch
+ - sed -i "s@self.spec\['mpi'\].prefix.include@'/usr/lib/openmpi/include'@" 7255.patch
+ - patch -d spack -p1 <7255.patch
  - source spack/share/spack/setup-env.sh
- - cp spack/{share/spack/qa/configuration,etc/spack}/packages.yaml
+ - cp packages.yaml spack/etc/spack/packages.yaml
 
 script:
-  - spack install -v ${APP}
+  - travis_wait 40 spack install -j4 --only dependencies ${APP}
+  - spack install -j4 -v ${APP}
 
 cache:
   ccache: true
