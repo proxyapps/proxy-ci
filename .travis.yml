@@ -6,7 +6,6 @@ addons:
       - gfortran
       - mercurial
       - graphviz
-      - cmake
       - gnupg2
       - r-base
       - r-base-core
@@ -18,7 +17,7 @@ addons:
 env:
   matrix:
     - APP=amg
-# no tensorflow in spack    - APP=candle-benchmarks 
+    - APP=candle-benchmarks 
     - APP=comd
     - APP=laghos
     - APP=macsio
