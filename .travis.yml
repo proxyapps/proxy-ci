@@ -110,9 +110,6 @@ matrix:
 
 before_install:
  - git clone --depth 1 https://github.com/spack/spack
- - wget https://github.com/spack/spack/pull/7255.patch
- - sed -i "s@self.spec\['mpi'\].prefix.include@'/usr/lib/openmpi/include'@" 7255.patch
- - patch -d spack -p1 <7255.patch
  - source spack/share/spack/setup-env.sh
  - cp packages.yaml spack/etc/spack/packages.yaml
 
