@@ -109,7 +109,8 @@ before_install:
 - cp packages.yaml spack/etc/spack/packages.yaml
 script:
 - travis_wait 40 spack install -j4 --only dependencies ${APP}
-- spack install -j4 -v ${APP}
+- if spack info ${APP} | grep -q mantevo.org/downloads; then INSECURE="--insecure"; fi
+- spack ${INSECURE} install -j4 -v ${APP}
 cache:
   ccache: true
 compiler:
