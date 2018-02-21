@@ -5,7 +5,7 @@ packages:
   cmake:
     buildable: False
     paths:
-      cmake@2.8.12.2: /usr
+      cmake@3.9.2: /usr/local/cmake-3.9.2
   r:
     buildable: False
     paths:

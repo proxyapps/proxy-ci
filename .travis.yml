@@ -5,7 +5,6 @@ addons:
     - gfortran
     - mercurial
     - graphviz
-    - cmake
     - gnupg2
     - r-base
     - r-base-core
@@ -16,6 +15,7 @@ addons:
 env:
   matrix:
   - APP=amg
+  - APP=candle-benchmarks
   - APP=comd
   - APP=laghos
   - APP=macsio
@@ -69,6 +69,7 @@ matrix:
   - env: APP=amr-exp-parabolic
   - env: APP=aspa
   - env: APP=branson
+  - env: APP=candle-benchmarks
   - env: APP=clamr
   - env: APP=cloverleaf
   - env: APP=cloverleaf3d
