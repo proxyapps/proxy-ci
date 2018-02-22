@@ -27,13 +27,11 @@ env:
   - APP=swfft
   - APP=xsbench
   - APP=amg2013
-  - APP=amr-exp-parabolic
   - APP=aspa
   - APP=branson
   - APP=clamr
   - APP=cloverleaf
   - APP=cloverleaf3d
-  - APP=cns-nospec
   - APP=coevp
   - APP=cohmm
   - APP=cosp2
@@ -59,21 +57,18 @@ env:
   - APP=pennant
   - APP=rsbench
   - APP=simplemoc
-  - APP=smc
   - APP=snap
   - APP=snbone
   - APP=tealeaf
 matrix:
   allow_failures:
   - env: APP=amg2013
-  - env: APP=amr-exp-parabolic
   - env: APP=aspa
   - env: APP=branson
   - env: APP=candle-benchmarks
   - env: APP=clamr
   - env: APP=cloverleaf
   - env: APP=cloverleaf3d
-  - env: APP=cns-nospec
   - env: APP=coevp
   - env: APP=cohmm
   - env: APP=cosp2
@@ -99,7 +94,6 @@ matrix:
   - env: APP=pennant
   - env: APP=rsbench
   - env: APP=simplemoc
-  - env: APP=smc
   - env: APP=snap
   - env: APP=snbone
   - env: APP=tealeaf
