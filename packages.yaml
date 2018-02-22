@@ -17,4 +17,4 @@ packages:
   openmpi:
     buildable: False
     paths:
-      openmpi@2.1.1: /usr
+      openmpi@1.6.5: /usr
