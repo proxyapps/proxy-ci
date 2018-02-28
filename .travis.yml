@@ -16,7 +16,7 @@ env:
   matrix:
   - APP=amg
   - APP=candle-benchmarks
-  - APP=comd
+  - APP=examinimd
   - APP=laghos
   - APP=macsio
   - APP=miniamr
@@ -34,6 +34,7 @@ env:
   - APP=cloverleaf3d
   - APP=coevp
   - APP=cohmm
+  - APP=comd
   - APP=cosp2
   - APP=ebms
   - APP=exampm
