@@ -15,7 +15,7 @@ addons:
 env:
   matrix:
   - APP=amg
-  - APP=candle-benchmarks
+  - APP=candle-benchmarks DEPS="python" # no tensorflow in spack
   - APP=examinimd
   - APP=laghos
   - APP=macsio
@@ -66,7 +66,6 @@ matrix:
   - env: APP=amg2013
   - env: APP=aspa
   - env: APP=branson
-  - env: APP=candle-benchmarks
   - env: APP=clamr
   - env: APP=cloverleaf
   - env: APP=cloverleaf3d
@@ -103,9 +102,9 @@ before_install:
 - source spack/share/spack/setup-env.sh
 - cp packages.yaml spack/etc/spack/packages.yaml
 script:
-- travis_wait 40 spack install -j4 --only dependencies ${APP}
+- if [[ -n ${DEPS} ]]; then travis_wait 40 spack install -j4 ${DEPS}; else travis_wait 40 spack install -j4 --only dependencies ${APP}; fi
 - if spack info ${APP} | grep -q mantevo.org/downloads; then INSECURE="--insecure"; fi
-- spack ${INSECURE} install -j4 -v ${APP}
+- spack ${INSECURE} install -j4 --only package -v ${APP}
 cache:
   ccache: true
 compiler:
