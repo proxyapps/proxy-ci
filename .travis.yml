@@ -1,17 +1,10 @@
 language: cpp
-addons:
-  apt:
-    packages:
-    - gfortran
-    - mercurial
-    - graphviz
-    - gnupg2
-    - r-base
-    - r-base-core
-    - r-base-dev
-    - perl
-    - perl-base
-    - libopenmpi-dev
+
+sudo: required
+
+services:
+- docker
+
 env:
   matrix:
   - APP=amg
@@ -61,23 +54,29 @@ env:
   - APP=snap
   - APP=snbone
   - APP=tealeaf
-matrix:
-  allow_failures:
-  - env: APP=branson
-  - env: APP=ebms
+
 before_install:
-- git clone --depth 1 https://github.com/spack/spack
-- source spack/share/spack/setup-env.sh
-- cp packages.yaml spack/etc/spack/packages.yaml
+  - cp -vr docker ${HOME}/docker
+  - cd ../../
+  - mv -v ${TRAVIS_REPO_SLUG} $HOME/docker
+  - cp -r $HOME/.ccache ${HOME}/docker/ccache
+  - git clone --depth 1 https://github.com/spack/spack ${HOME}/docker/spack
+  - source ${HOME}/docker/spack/share/spack/setup-env.sh
+  - if spack info ${APP} | grep -q mantevo.org/downloads; then INSECURE="--insecure"; fi
+  - for i in $(spack list -t proxy-app | grep -v ecp-proxy-apps); do echo "Looking for $i"; grep -q "APP=$i" ${HOME}/docker/proxy-ci/.travis.yml || exit 1; done
+
 script:
-- if [[ -n ${DEPS} ]]; then travis_wait 40 spack install -j4 ${DEPS}; else travis_wait 40 spack install -j4 --only dependencies ${APP}; fi
-- if spack info ${APP} | grep -q mantevo.org/downloads; then INSECURE="--insecure"; fi
-- spack ${INSECURE} install -j4 --only package -v ${APP}
+  - docker build 
+                --build-arg APP="${APP}"
+                --build-arg DEPS="${DEPS}"
+                --build-arg INSECURE="${INSECURE}"
+                -t ${TRAVIS_REPO_SLUG}:latest ${HOME}/docker/ &&
+    rm -rf ${HOME}/.ccache &&
+    CON=$(docker run -d ${TRAVIS_REPO_SLUG}:latest /bin/bash) &&
+    docker cp ${CON}:/home/ci/.ccache ${HOME}/
+
 cache:
   ccache: true
+
 compiler:
 - gcc
-notifications:
-  email:
-    recipients:
-      secure: AxSotx9wJR5HqsqWFNbY6Kd2TuzSXcWzClBtP0Va7eCwf9XlspzVNp4t+o4GQhcurVeR5cT0BMHak+DtgWrsgkwEQNVHXpOsaEDf1yZgmAv+9K9EWvtPyjXNcJEax0AMdHDAZJkF9ZqyCwzfMJaeC7XZyWBdODBwQIWa9RnSLD0B7BnehzP7UERfk4oUGhDcuvJJa9qm51o2czTQK7Wpbi7OXdRkFfYTQZD0F8YRUmMeGTpcX+hQDKuFm0qVYMLBKu5ZwzO1iGTZgIzFPEHznbq9TX5eyS8IIgefuVwI/iiOkEXc9jfa1gT7piAGveHBpeMjA3HxgwkSuwYMge+3P5NK8YywakPBoeBkdNnXNgj/8Dkx5aLwlTmhYEUxNjwE7oBpOqFnxfRHdmuZgonxuIZniPwL+LYdOdCE+38CqHFo0nR5D0eAjdVmnqt73JIlckuXWuWOf3SEfvkaoJm1KX4xFAWKmcWN3AxuoDeRV+hD/UK0XO9nI5SNtwd57P29Ee1ZaDW4mZ9c5GJ0vDmvhliWwjW5cEDAB4e8ZPEKwNhdEuwnRuSwA82eXSVjlHfCLYEmedK3B7qOP0sMEQBYpooHllD2fd0jwEqhr80wdIUW6V7izUEaaq8E3xMTXgHHs+OvSbia+aR+PCddRJRXy2j+zP7Fnbw41VZ0Q0qNgXQ=
