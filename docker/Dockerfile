@@ -22,4 +22,4 @@ RUN cp proxy-ci/packages.yaml spack/etc/spack/packages.yaml
 ENV SPACK=/home/ci/spack/bin/spack
 
 RUN if [ -n "${DEPS}" ]; then ${SPACK} install -j4 -v ${DEPS}; else ${SPACK} install -j4 -v --only dependencies ${APP}; fi
-RUN ${SPACK} ${INSECURE} install -j4 --only package -v ${APP}
+RUN ${SPACK} ${INSECURE} install --source -j4 --only package -v ${APP}
