@@ -70,9 +70,9 @@ before_install:
 script:
 - docker build 
     --build-arg APP="${APP}" --build-arg DEPS="${DEPS}" --build-arg INSECURE="${INSECURE}"
-    -t ${TRAVIS_REPO_SLUG}:${APP} ${HOME}/docker/ --file="${HOME}/docker/Dockerfile-${DOCKEROS}" &&
+    -t ${TRAVIS_REPO_SLUG}:${DOCKEROS}:${APP} ${HOME}/docker/ --file="${HOME}/docker/Dockerfile-${DOCKEROS}" &&
   rm -rf ${HOME}/.ccache &&
-  CON=$(docker run -d ${TRAVIS_REPO_SLUG}:${APP} /bin/bash) &&
+  CON=$(docker run -d ${TRAVIS_REPO_SLUG}:${DOCKEROS}:${APP} /bin/bash) &&
   docker cp ${CON}:/home/ci/.ccache ${HOME}/
 
 after_success:
