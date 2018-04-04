@@ -54,6 +54,53 @@ env:
   - APP=snap DOCKEROS=ubuntu
   - APP=snbone DOCKEROS=ubuntu
   - APP=tealeaf DOCKEROS=ubuntu
+  - APP=amg DOCKEROS=fedora
+  - APP=candle-benchmarks DEPS="python" DOCKEROS=fedora
+  - APP=examinimd DOCKEROS=fedora
+  - APP=laghos DOCKEROS=fedora
+  - APP=macsio DOCKEROS=fedora
+  - APP=miniamr DOCKEROS=fedora
+  - APP=minife DOCKEROS=fedora
+  - APP=minitri DOCKEROS=fedora
+  - APP=nekbone DOCKEROS=fedora
+  - APP=sw4lite DOCKEROS=fedora
+  - APP=swfft DOCKEROS=fedora
+  - APP=xsbench DOCKEROS=fedora
+  - APP=amg2013 DOCKEROS=fedora
+  - APP=aspa DOCKEROS=fedora
+  - APP=branson DOCKEROS=fedora
+  - APP=clamr DOCKEROS=fedora
+  - APP=cloverleaf DOCKEROS=fedora
+  - APP=cloverleaf3d DOCKEROS=fedora
+  - APP=coevp DOCKEROS=fedora
+  - APP=cohmm DOCKEROS=fedora
+  - APP=comd DOCKEROS=fedora
+  - APP=cosp2 DOCKEROS=fedora
+  - APP=ebms DOCKEROS=fedora
+  - APP=exampm DOCKEROS=fedora
+  - APP=exasp2 DOCKEROS=fedora
+  - APP=hacckernels DOCKEROS=fedora
+  - APP=hpccg DOCKEROS=fedora
+  - APP=hpgmg DOCKEROS=fedora
+  - APP=kripke DOCKEROS=fedora
+  - APP=lcals DOCKEROS=fedora
+  - APP=lulesh DOCKEROS=fedora
+  - APP=miniaero DOCKEROS=fedora
+  - APP=miniamr DOCKEROS=fedora
+  - APP=minighost DOCKEROS=fedora
+  - APP=minimd DOCKEROS=fedora
+  - APP=miniqmc DOCKEROS=fedora
+  - APP=minismac2d DOCKEROS=fedora
+  - APP=minixyce DOCKEROS=fedora
+  - APP=nut DOCKEROS=fedora
+  - APP=openmc DOCKEROS=fedora
+  - APP=pathfinder DOCKEROS=fedora
+  - APP=pennant DOCKEROS=fedora
+  - APP=rsbench DOCKEROS=fedora
+  - APP=simplemoc DOCKEROS=fedora
+  - APP=snap DOCKEROS=fedora
+  - APP=snbone DOCKEROS=fedora
+  - APP=tealeaf DOCKEROS=fedora
 
 before_install:
   - cp -vr docker ${HOME}/docker
