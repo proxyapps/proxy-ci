@@ -18,7 +18,7 @@ RUN chown -R ci:ci /home/ci/proxy-ci /home/ci/.ccache /home/ci/spack
 USER ci
 
 WORKDIR /home/ci
-RUN cp proxy-ci/packages.yaml spack/etc/spack/packages.yaml
+RUN cp proxy-ci/ubuntu-packages.yaml spack/etc/spack/packages.yaml
 ENV SPACK=/home/ci/spack/bin/spack
 
 RUN if [ -n "${DEPS}" ]; then ${SPACK} install -j4 -v ${DEPS}; else ${SPACK} install -j4 -v --only dependencies ${APP}; fi

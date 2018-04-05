@@ -1,0 +1,28 @@
+from fedora:latest
+
+ARG APP
+ARG DEPS
+ARG INSECURE
+
+RUN yum update -y
+RUN yum install -y make gcc cmake git mercurial graphviz gnupg2 R perl perl-devel openmpi openmpi-devel
+RUN yum install -y patch bzip2*
+RUN ln -s /usr/include/openmpi-x86_64 /usr/lib64/openmpi/include
+
+RUN useradd -m ci
+
+COPY proxy-ci/ /home/ci/proxy-ci
+COPY spack /home/ci/spack
+RUN rm -rf /home/ci/.ccache
+COPY ccache/ /home/ci/.ccache
+USER root
+RUN chown -R ci:ci /home/ci/proxy-ci /home/ci/.ccache /home/ci/spack
+USER ci
+
+WORKDIR /home/ci
+RUN cp proxy-ci/fedora-packages.yaml spack/etc/spack/packages.yaml
+ENV SPACK=/home/ci/spack/bin/spack
+ENV SPACK_ROOT=/home/ci/spack
+
+RUN if [ -n "${DEPS}" ]; then ${SPACK} install -j4 -v ${DEPS}; else ${SPACK} install -j4 -v --only dependencies ${APP}; fi
+RUN ${SPACK} ${INSECURE} install --source -j4 --only package -v ${APP}
