@@ -111,11 +111,12 @@ before_install:
   - source ${HOME}/docker/spack/share/spack/setup-env.sh
   - if spack info ${APP} | grep -q mantevo.org/downloads; then INSECURE="--insecure"; fi
   - for i in $(spack list -t proxy-app | grep -v ecp-proxy-apps); do
-      echo "Looking for $i"; grep -q "APP=$i" ${HOME}/docker/proxy-ci/.travis.yml || exit 1;
+      echo "Looking for $i .travis.yml"; grep -q "APP=$i" ${HOME}/docker/proxy-ci/.travis.yml || exit 1;
     done
 
 script:
-- docker build 
+- travis_retry timeout 540 docker pull $(sed -n '1s/from //p' ${HOME}/docker/Dockerfile-${DOCKEROS})
+- travis_retry docker build 
     --build-arg APP="${APP}" --build-arg DEPS="${DEPS}" --build-arg INSECURE="${INSECURE}"
     -t ${TRAVIS_REPO_SLUG}_${DOCKEROS}:${APP} ${HOME}/docker/ --file="${HOME}/docker/Dockerfile-${DOCKEROS}" &&
   rm -rf ${HOME}/.ccache &&
