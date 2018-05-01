@@ -4,6 +4,9 @@ ARG APP
 ARG DEPS
 ARG INSECURE
 
+ENV TZ=Etc/GMT
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get -q update -y
 RUN apt-get -qq install -y make cmake git g++ gfortran mercurial graphviz gnupg2 r-base r-base-core r-base-dev perl perl-base libopenmpi-dev 
 
