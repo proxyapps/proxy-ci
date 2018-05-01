@@ -4,6 +4,7 @@ ARG APP
 ARG DEPS
 ARG INSECURE
 
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get -q update -y
 RUN apt-get -qq install -y make cmake git g++ gfortran mercurial graphviz gnupg2 r-base r-base-core r-base-dev perl perl-base libopenmpi-dev 
 
