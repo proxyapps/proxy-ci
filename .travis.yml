@@ -46,7 +46,6 @@ env:
   - APP=minismac2d DOCKEROS=ubuntu
   - APP=minixyce DOCKEROS=ubuntu
   - APP=nut DOCKEROS=ubuntu
-  - APP=openmc DOCKEROS=ubuntu
   - APP=pathfinder DOCKEROS=ubuntu
   - APP=pennant DOCKEROS=ubuntu
   - APP=rsbench DOCKEROS=ubuntu
@@ -93,7 +92,6 @@ env:
   - APP=minismac2d DOCKEROS=fedora
   - APP=minixyce DOCKEROS=fedora
   - APP=nut DOCKEROS=fedora
-  - APP=openmc DOCKEROS=fedora
   - APP=pathfinder DOCKEROS=fedora
   - APP=pennant DOCKEROS=fedora
   - APP=rsbench DOCKEROS=fedora
