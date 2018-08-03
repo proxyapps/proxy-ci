@@ -8,7 +8,7 @@ services:
 env:
   matrix:
   - APP=amg DOCKEROS=ubuntu
-  - APP=candle-benchmarks DEPS="python" DOCKEROS=ubuntu
+  - APP="candle-benchmarks ^libjpeg ^opengl" DEPS="python" DOCKEROS=ubuntu
   - APP=examinimd DOCKEROS=ubuntu
   - APP=laghos DOCKEROS=ubuntu
   - APP=macsio DOCKEROS=ubuntu
@@ -54,7 +54,7 @@ env:
   - APP=snbone DOCKEROS=ubuntu
   - APP=tealeaf DOCKEROS=ubuntu
   - APP=amg DOCKEROS=fedora
-  - APP=candle-benchmarks DEPS="python" DOCKEROS=fedora
+  - APP="candle-benchmarks ^libjpeg ^opengl" DEPS="python" DOCKEROS=fedora
   - APP=examinimd DOCKEROS=fedora
   - APP=laghos DOCKEROS=fedora
   - APP=macsio DOCKEROS=fedora
@@ -109,23 +109,23 @@ before_install:
   - source ${HOME}/docker/spack/share/spack/setup-env.sh
   - if spack info ${APP} | grep -q mantevo.org/downloads; then INSECURE="--insecure"; fi
   - for i in $(spack list -t proxy-app | grep -v ecp-proxy-apps); do
-      echo "Looking for $i .travis.yml"; grep -q "APP=$i" ${HOME}/docker/proxy-ci/.travis.yml || exit 1;
+      echo "Looking for $i .travis.yml"; grep -q "APP=['\"]*$i" ${HOME}/docker/proxy-ci/.travis.yml || exit 1;
     done
 
 script:
 - travis_retry timeout 540 docker pull $(sed -n '1s/from //p' ${HOME}/docker/Dockerfile-${DOCKEROS})
 - travis_retry docker build 
     --build-arg APP="${APP}" --build-arg DEPS="${DEPS}" --build-arg INSECURE="${INSECURE}"
-    -t ${TRAVIS_REPO_SLUG}:${APP}_${DOCKEROS} ${HOME}/docker/ --file="${HOME}/docker/Dockerfile-${DOCKEROS}" &&
+    -t ${TRAVIS_REPO_SLUG}:${APP%% *}_${DOCKEROS} ${HOME}/docker/ --file="${HOME}/docker/Dockerfile-${DOCKEROS}" &&
   rm -rf ${HOME}/.ccache &&
-  CON=$(docker run -d ${TRAVIS_REPO_SLUG}:${APP}_${DOCKEROS} /bin/bash) &&
+  CON=$(docker run -d ${TRAVIS_REPO_SLUG}:${APP%% *}_${DOCKEROS} /bin/bash) &&
   docker cp ${CON}:/home/ci/.ccache ${HOME}/
 
 after_success:
 - if [[ ${TRAVIS_BRANCH} = master ]]; then DEPLOY=yes; fi
 - if [[ ${DEPLOY} = yes && ${DOCKER_USERNAME} && ${DOCKER_PASSWORD} && ${TRAVIS_PULL_REQUEST} == false ]]; then
     docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-    docker push "${TRAVIS_REPO_SLUG}:${APP}_${DOCKEROS}";
+    docker push "${TRAVIS_REPO_SLUG}:${APP%% *}_${DOCKEROS}";
   fi
 
 cache:
