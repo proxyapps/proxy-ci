@@ -109,7 +109,7 @@ before_install:
   - source ${HOME}/docker/spack/share/spack/setup-env.sh
   - if spack info ${APP} | grep -q mantevo.org/downloads; then INSECURE="--insecure"; fi
   - for i in $(spack list -t proxy-app | grep -v ecp-proxy-apps); do
-      echo "Looking for $i .travis.yml"; grep -q "APP=$i" ${HOME}/docker/proxy-ci/.travis.yml || exit 1;
+      echo "Looking for $i .travis.yml"; grep -q "APP=['\"]*$i" ${HOME}/docker/proxy-ci/.travis.yml || exit 1;
     done
 
 script:
