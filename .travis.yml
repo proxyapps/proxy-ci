@@ -54,7 +54,7 @@ env:
   - APP=snbone DOCKEROS=ubuntu
   - APP=tealeaf DOCKEROS=ubuntu
   - APP=amg DOCKEROS=fedora
-  - APP="candle-benchmarks ^libjpeg ^opengl" DEPS="python" DOCKEROS=fedora
+  - APP="candle-benchmarks ^libjpeg ^opengl@3.3" DEPS="python" DOCKEROS=fedora
   - APP=examinimd DOCKEROS=fedora
   - APP=laghos DOCKEROS=fedora
   - APP=macsio DOCKEROS=fedora
