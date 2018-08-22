@@ -22,6 +22,7 @@ env:
   - APP=amg2013 DOCKEROS=ubuntu
   - APP=aspa DOCKEROS=ubuntu
   - APP=branson DOCKEROS=ubuntu
+  - APP=chatterbug DOCKEROS=ubuntu
   - APP=clamr DOCKEROS=ubuntu
   - APP=cloverleaf DOCKEROS=ubuntu
   - APP=cloverleaf3d DOCKEROS=ubuntu
@@ -68,6 +69,7 @@ env:
   - APP=amg2013 DOCKEROS=fedora
   - APP=aspa DOCKEROS=fedora
   - APP=branson DOCKEROS=fedora
+  - APP=chatterbug DOCKEROS=fedora
   - APP=clamr DOCKEROS=fedora
   - APP=cloverleaf DOCKEROS=fedora
   - APP=cloverleaf3d DOCKEROS=fedora
