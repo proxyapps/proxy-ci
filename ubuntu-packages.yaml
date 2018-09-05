@@ -18,3 +18,7 @@ packages:
     buildable: False
     paths:
       openmpi@1.6.5: /usr
+  opengl:
+    buildable: False
+    paths:
+      opengl@system: /usr/glib
