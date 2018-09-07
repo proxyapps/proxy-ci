@@ -79,7 +79,7 @@ env:
   - APP=cosp2 DOCKEROS=fedora VERBOSE=""
   - APP=ebms DOCKEROS=fedora VERBOSE=""
   - APP=exampm DOCKEROS=fedora VERBOSE=""
-  - APP=exasp2 DOCKEROS=fedora VERBOSE=""
+  - APP=exasp2 DOCKEROS=fedora VERBOSE="-v"
   - APP=hacckernels DOCKEROS=fedora VERBOSE=""
   - APP=hpccg DOCKEROS=fedora VERBOSE=""
   - APP=hpgmg DOCKEROS=fedora VERBOSE=""
