@@ -117,7 +117,7 @@ before_install:
 script:
 - travis_retry timeout 540 docker pull $(sed -n '1s/from //p' ${HOME}/docker/Dockerfile-${DOCKEROS})
 - travis_retry docker build 
-    --build-arg APP="${APP}" --build-arg DEPS="${DEPS}" --build-arg INSECURE="${INSECURE}"
+    --build-arg APP="${APP}" --build-arg DEPS="${DEPS}" --build-arg INSECURE="${INSECURE}" --build-arg VERBOSE="${VERBOSE}"
     -t ${TRAVIS_REPO_SLUG}:${APP%% *}_${DOCKEROS} ${HOME}/docker/ --file="${HOME}/docker/Dockerfile-${DOCKEROS}" &&
   rm -rf ${HOME}/.ccache &&
   CON=$(docker run -d ${TRAVIS_REPO_SLUG}:${APP%% *}_${DOCKEROS} /bin/bash) &&
