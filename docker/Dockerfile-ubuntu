@@ -6,11 +6,7 @@ ARG INSECURE
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get -q update -y
-RUN apt-get -qq install -y make cmake git g++ gfortran mercurial graphviz gnupg2 r-base r-base-core r-base-dev perl perl-base libopenmpi-dev libgl-dev
-
-RUN mkdir /usr/glib
-RUN ln -s /usr/lib/x86_64-linux-gnu /usr/glib/lib
-RUN ln -s /usr/include /usr/glib/include
+RUN apt-get -qq install -y make cmake git g++ gfortran mercurial graphviz gnupg2 r-base r-base-core r-base-dev perl perl-base libopenmpi-dev
 
 RUN useradd -m ci
 
