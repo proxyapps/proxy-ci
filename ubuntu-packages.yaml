@@ -2,7 +2,6 @@ packages:
   all:
     providers:
       mpi: [openmpi]
-      gl: [opengl]
   cmake:
     buildable: False
     paths:
