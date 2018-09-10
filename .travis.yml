@@ -67,7 +67,7 @@ env:
   - APP=swfft DOCKEROS=fedora VERBOSE="-v"
   - APP=xsbench DOCKEROS=fedora VERBOSE=""
   - APP=amg2013 DOCKEROS=fedora VERBOSE=""
-  - APP=aspa DOCKEROS=fedora VERBOSE=""
+  - APP=aspa DOCKEROS=fedora VERBOSE="-v"
   - APP=branson DOCKEROS=fedora VERBOSE="-v"
   - APP=chatterbug DOCKEROS=fedora VERBOSE=""
   - APP=clamr DOCKEROS=fedora VERBOSE=""
