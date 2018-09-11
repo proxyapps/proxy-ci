@@ -18,3 +18,7 @@ packages:
     buildable: False
     paths:
       openmpi@1.6.5: /usr/lib64/openmpi
+  openblas:
+    buildable: False
+    paths:
+      openblas@0.3.2: /usr
