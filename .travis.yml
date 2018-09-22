@@ -7,100 +7,102 @@ services:
 
 env:
   matrix:
-  - APP=amg DOCKEROS=ubuntu VERBOSE=""
-  - APP="candle-benchmarks ^libjpeg ^opengl@3.4.2 ^opencv~gtk" DEPS="python@2.7.15" DOCKEROS=ubuntu VERBOSE=""
-  - APP=examinimd DOCKEROS=ubuntu VERBOSE=""
+  - APP=amg DOCKEROS=ubuntu
+  - APP="candle-benchmarks ^libjpeg ^opengl@3.4.2 ^opencv~gtk" DEPS="python@2.7.15" DOCKEROS=ubuntu
+  - APP=examinimd DOCKEROS=ubuntu
   - APP=laghos DOCKEROS=ubuntu VERBOSE="-v"
-  - APP=macsio DOCKEROS=ubuntu VERBOSE=""
-  - APP=miniamr DOCKEROS=ubuntu VERBOSE=""
-  - APP=minife DOCKEROS=ubuntu VERBOSE=""
-  - APP=minitri DOCKEROS=ubuntu VERBOSE=""
-  - APP=nekbone DOCKEROS=ubuntu VERBOSE=""
+  - APP=macsio DOCKEROS=ubuntu
+  - APP=miniamr DOCKEROS=ubuntu
+  - APP=minife DOCKEROS=ubuntu
+  - APP=minitri DOCKEROS=ubuntu
+  - APP=nekbone DOCKEROS=ubuntu
   - APP=sw4lite DOCKEROS=ubuntu VERBOSE="-v"
   - APP=swfft DOCKEROS=ubuntu VERBOSE="-v"
-  - APP=xsbench DOCKEROS=ubuntu VERBOSE=""
-  - APP=amg2013 DOCKEROS=ubuntu VERBOSE=""
+  - APP=xsbench DOCKEROS=ubuntu
+  - APP=amg2013 DOCKEROS=ubuntu
   - APP=aspa DOCKEROS=ubuntu VERBOSE="-v"
   - APP=branson DOCKEROS=ubuntu VERBOSE="-v"
-  - APP=chatterbug DOCKEROS=ubuntu VERBOSE=""
-  - APP=clamr DOCKEROS=ubuntu VERBOSE=""
-  - APP=cloverleaf DOCKEROS=ubuntu VERBOSE=""
-  - APP=cloverleaf3d DOCKEROS=ubuntu VERBOSE=""
+  - APP=chatterbug DOCKEROS=ubuntu
+  - APP=clamr DOCKEROS=ubuntu
+  - APP=cloverleaf DOCKEROS=ubuntu
+  - APP=cloverleaf3d DOCKEROS=ubuntu
   - APP=coevp DOCKEROS=ubuntu VERBOSE="-v"
-  - APP=cohmm DOCKEROS=ubuntu VERBOSE=""
-  - APP=comd DOCKEROS=ubuntu VERBOSE=""
-  - APP=cosp2 DOCKEROS=ubuntu VERBOSE=""
-  - APP=ebms DOCKEROS=ubuntu VERBOSE=""
-  - APP=exampm DOCKEROS=ubuntu VERBOSE=""
+  - APP=cohmm DOCKEROS=ubuntu
+  - APP=comd DOCKEROS=ubuntu
+  - APP=cosp2 DOCKEROS=ubuntu
+  - APP=ebms DOCKEROS=ubuntu
+  - APP=ember DOCKEROS=ubuntu
+  - APP=exampm DOCKEROS=ubuntu
   - APP=exasp2 DOCKEROS=ubuntu VERBOSE="-v"
-  - APP=hacckernels DOCKEROS=ubuntu VERBOSE=""
-  - APP=hpccg DOCKEROS=ubuntu VERBOSE=""
-  - APP=hpgmg DOCKEROS=ubuntu VERBOSE=""
-  - APP=kripke DOCKEROS=ubuntu VERBOSE=""
-  - APP=lcals DOCKEROS=ubuntu VERBOSE=""
-  - APP=lulesh DOCKEROS=ubuntu VERBOSE=""
-  - APP=miniaero DOCKEROS=ubuntu VERBOSE=""
-  - APP=miniamr DOCKEROS=ubuntu VERBOSE=""
-  - APP=minighost DOCKEROS=ubuntu VERBOSE=""
-  - APP=minimd DOCKEROS=ubuntu VERBOSE=""
+  - APP=hacckernels DOCKEROS=ubuntu
+  - APP=hpccg DOCKEROS=ubuntu
+  - APP=hpgmg DOCKEROS=ubuntu
+  - APP=kripke DOCKEROS=ubuntu
+  - APP=lcals DOCKEROS=ubuntu
+  - APP=lulesh DOCKEROS=ubuntu
+  - APP=miniaero DOCKEROS=ubuntu
+  - APP=miniamr DOCKEROS=ubuntu
+  - APP=minighost DOCKEROS=ubuntu
+  - APP=minimd DOCKEROS=ubuntu
   - APP=miniqmc DOCKEROS=ubuntu VERBOSE="-v"
-  - APP=minismac2d DOCKEROS=ubuntu VERBOSE=""
-  - APP=minixyce DOCKEROS=ubuntu VERBOSE=""
-  - APP=nut DOCKEROS=ubuntu VERBOSE=""
-  - APP=pathfinder DOCKEROS=ubuntu VERBOSE=""
-  - APP=pennant DOCKEROS=ubuntu VERBOSE=""
-  - APP=rsbench DOCKEROS=ubuntu VERBOSE=""
-  - APP=simplemoc DOCKEROS=ubuntu VERBOSE=""
-  - APP=snap DOCKEROS=ubuntu VERBOSE=""
-  - APP=snbone DOCKEROS=ubuntu VERBOSE=""
-  - APP=tealeaf DOCKEROS=ubuntu VERBOSE=""
-  - APP=amg DOCKEROS=fedora VERBOSE=""
-  - APP="candle-benchmarks ^libjpeg ^opengl@3.4.2 ^opencv~gtk" DEPS="python" DOCKEROS=fedora VERBOSE=""
-  - APP=examinimd DOCKEROS=fedora VERBOSE=""
+  - APP=minismac2d DOCKEROS=ubuntu
+  - APP=minixyce DOCKEROS=ubuntu
+  - APP=nut DOCKEROS=ubuntu
+  - APP=pathfinder DOCKEROS=ubuntu
+  - APP=pennant DOCKEROS=ubuntu
+  - APP=rsbench DOCKEROS=ubuntu
+  - APP=simplemoc DOCKEROS=ubuntu
+  - APP=snap DOCKEROS=ubuntu
+  - APP=snbone DOCKEROS=ubuntu
+  - APP=tealeaf DOCKEROS=ubuntu
+  - APP=amg DOCKEROS=fedora
+  - APP="candle-benchmarks ^libjpeg ^opengl@3.4.2 ^opencv~gtk" DEPS="python" DOCKEROS=fedora
+  - APP=examinimd DOCKEROS=fedora
   - APP=laghos DOCKEROS=fedora VERBOSE="-v"
-  - APP=macsio DOCKEROS=fedora VERBOSE=""
-  - APP=miniamr DOCKEROS=fedora VERBOSE=""
-  - APP=minife DOCKEROS=fedora VERBOSE=""
-  - APP=minitri DOCKEROS=fedora VERBOSE=""
-  - APP=nekbone DOCKEROS=fedora VERBOSE=""
+  - APP=macsio DOCKEROS=fedora
+  - APP=miniamr DOCKEROS=fedora
+  - APP=minife DOCKEROS=fedora
+  - APP=minitri DOCKEROS=fedora
+  - APP=nekbone DOCKEROS=fedora
   - APP=sw4lite DOCKEROS=fedora VERBOSE="-v"
   - APP=swfft DOCKEROS=fedora VERBOSE="-v"
-  - APP=xsbench DOCKEROS=fedora VERBOSE=""
-  - APP=amg2013 DOCKEROS=fedora VERBOSE=""
+  - APP=xsbench DOCKEROS=fedora
+  - APP=amg2013 DOCKEROS=fedora
   - APP=aspa DOCKEROS=fedora VERBOSE="-v"
   - APP=branson DOCKEROS=fedora VERBOSE="-v"
-  - APP=chatterbug DOCKEROS=fedora VERBOSE=""
-  - APP=clamr DOCKEROS=fedora VERBOSE=""
-  - APP=cloverleaf DOCKEROS=fedora VERBOSE=""
-  - APP=cloverleaf3d DOCKEROS=fedora VERBOSE=""
+  - APP=chatterbug DOCKEROS=fedora
+  - APP=clamr DOCKEROS=fedora
+  - APP=cloverleaf DOCKEROS=fedora
+  - APP=cloverleaf3d DOCKEROS=fedora
   - APP=coevp DOCKEROS=fedora VERBOSE="-v"
-  - APP=cohmm DOCKEROS=fedora VERBOSE=""
-  - APP=comd DOCKEROS=fedora VERBOSE=""
-  - APP=cosp2 DOCKEROS=fedora VERBOSE=""
-  - APP=ebms DOCKEROS=fedora VERBOSE=""
-  - APP=exampm DOCKEROS=fedora VERBOSE=""
+  - APP=cohmm DOCKEROS=fedora
+  - APP=comd DOCKEROS=fedora
+  - APP=cosp2 DOCKEROS=fedora
+  - APP=ebms DOCKEROS=fedora
+  - APP=ember DOCKEROS=fedora
+  - APP=exampm DOCKEROS=fedora
   - APP=exasp2 DOCKEROS=fedora VERBOSE="-v"
-  - APP=hacckernels DOCKEROS=fedora VERBOSE=""
-  - APP=hpccg DOCKEROS=fedora VERBOSE=""
-  - APP=hpgmg DOCKEROS=fedora VERBOSE=""
-  - APP=kripke DOCKEROS=fedora VERBOSE=""
-  - APP=lcals DOCKEROS=fedora VERBOSE=""
-  - APP=lulesh DOCKEROS=fedora VERBOSE=""
-  - APP=miniaero DOCKEROS=fedora VERBOSE=""
-  - APP=miniamr DOCKEROS=fedora VERBOSE=""
-  - APP=minighost DOCKEROS=fedora VERBOSE=""
-  - APP=minimd DOCKEROS=fedora VERBOSE=""
+  - APP=hacckernels DOCKEROS=fedora
+  - APP=hpccg DOCKEROS=fedora
+  - APP=hpgmg DOCKEROS=fedora
+  - APP=kripke DOCKEROS=fedora
+  - APP=lcals DOCKEROS=fedora
+  - APP=lulesh DOCKEROS=fedora
+  - APP=miniaero DOCKEROS=fedora
+  - APP=miniamr DOCKEROS=fedora
+  - APP=minighost DOCKEROS=fedora
+  - APP=minimd DOCKEROS=fedora
   - APP=miniqmc DOCKEROS=fedora VERBOSE="-v"
-  - APP=minismac2d DOCKEROS=fedora VERBOSE=""
-  - APP=minixyce DOCKEROS=fedora VERBOSE=""
-  - APP=nut DOCKEROS=fedora VERBOSE=""
-  - APP=pathfinder DOCKEROS=fedora VERBOSE=""
-  - APP=pennant DOCKEROS=fedora VERBOSE=""
-  - APP=rsbench DOCKEROS=fedora VERBOSE=""
-  - APP=simplemoc DOCKEROS=fedora VERBOSE=""
-  - APP=snap DOCKEROS=fedora VERBOSE=""
-  - APP=snbone DOCKEROS=fedora VERBOSE=""
-  - APP=tealeaf DOCKEROS=fedora VERBOSE=""
+  - APP=minismac2d DOCKEROS=fedora
+  - APP=minixyce DOCKEROS=fedora
+  - APP=nut DOCKEROS=fedora
+  - APP=pathfinder DOCKEROS=fedora
+  - APP=pennant DOCKEROS=fedora
+  - APP=rsbench DOCKEROS=fedora
+  - APP=simplemoc DOCKEROS=fedora
+  - APP=snap DOCKEROS=fedora
+  - APP=snbone DOCKEROS=fedora
+  - APP=tealeaf DOCKEROS=fedora
 
 before_install:
   - cp -vr docker ${HOME}/docker
