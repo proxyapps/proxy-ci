@@ -50,6 +50,7 @@ env:
   - APP=nut DOCKEROS=ubuntu
   - APP=pathfinder DOCKEROS=ubuntu
   - APP=pennant DOCKEROS=ubuntu
+  - APP=picsarlite DOCKEROS=ubuntu
   - APP=rsbench DOCKEROS=ubuntu
   - APP=simplemoc DOCKEROS=ubuntu
   - APP=snap DOCKEROS=ubuntu
@@ -98,6 +99,7 @@ env:
   - APP=nut DOCKEROS=fedora
   - APP=pathfinder DOCKEROS=fedora
   - APP=pennant DOCKEROS=fedora
+  - APP=picsarlite DOCKEROS=fedora
   - APP=rsbench DOCKEROS=fedora
   - APP=simplemoc DOCKEROS=fedora
   - APP=snap DOCKEROS=fedora
