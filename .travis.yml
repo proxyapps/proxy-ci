@@ -46,6 +46,7 @@ env:
   - APP=minimd DOCKEROS=ubuntu
   - APP=miniqmc DOCKEROS=ubuntu VERBOSE="-v"
   - APP=minismac2d DOCKEROS=ubuntu
+  - APP=minivite DOCKEROS=ubuntu
   - APP=minixyce DOCKEROS=ubuntu
   - APP=nut DOCKEROS=ubuntu
   - APP=pathfinder DOCKEROS=ubuntu
@@ -95,6 +96,7 @@ env:
   - APP=minimd DOCKEROS=fedora
   - APP=miniqmc DOCKEROS=fedora VERBOSE="-v"
   - APP=minismac2d DOCKEROS=fedora
+  - APP=minivite DOCKEROS=fedora
   - APP=minixyce DOCKEROS=fedora
   - APP=nut DOCKEROS=fedora
   - APP=pathfinder DOCKEROS=fedora
