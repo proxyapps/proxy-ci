@@ -57,6 +57,7 @@ env:
   - APP=snap DOCKEROS=ubuntu
   - APP=snbone DOCKEROS=ubuntu
   - APP=tealeaf DOCKEROS=ubuntu
+  - APP=thornado-mini DOCKEROS=ubuntu
   - APP=amg DOCKEROS=fedora
   - APP="candle-benchmarks ^libjpeg ^opengl@3.4.2 ^opencv~gtk" DEPS="python" DOCKEROS=fedora
   - APP=examinimd DOCKEROS=fedora
@@ -107,6 +108,7 @@ env:
   - APP=snap DOCKEROS=fedora
   - APP=snbone DOCKEROS=fedora
   - APP=tealeaf DOCKEROS=fedora
+  - APP=thornado-mini DOCKEROS=fedora
 
 before_install:
   - cp -vr docker ${HOME}/docker
