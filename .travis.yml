@@ -8,7 +8,7 @@ services:
 env:
   matrix:
   - APP=amg DOCKEROS=ubuntu
-  - APP="candle-benchmarks ^libjpeg ^opengl@3.4.2 ^opencv~gtk" DEPS="python@2.7.15" DOCKEROS=ubuntu
+  - APP="candle-benchmarks ^libjpeg ^opengl@3.4.2" DEPS="python@2.7.15" DOCKEROS=ubuntu
   - APP=examinimd DOCKEROS=ubuntu
   - APP=laghos DOCKEROS=ubuntu VERBOSE="-v"
   - APP=macsio DOCKEROS=ubuntu
@@ -59,7 +59,7 @@ env:
   - APP=tealeaf DOCKEROS=ubuntu
   - APP=thornado-mini DOCKEROS=ubuntu
   - APP=amg DOCKEROS=fedora
-  - APP="candle-benchmarks ^libjpeg ^opengl@3.4.2 ^opencv~gtk" DEPS="python" DOCKEROS=fedora
+  - APP="candle-benchmarks ^libjpeg ^opengl@3.4.2" DEPS="python" DOCKEROS=fedora
   - APP=examinimd DOCKEROS=fedora
   - APP=laghos DOCKEROS=fedora VERBOSE="-v"
   - APP=macsio DOCKEROS=fedora
