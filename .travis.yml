@@ -8,7 +8,6 @@ services:
 env:
   matrix:
   - APP=amg DOCKEROS=ubuntu
-  - APP="candle-benchmarks ^libjpeg ^opengl@3.4.2" DEPS="python@2.7.15" DOCKEROS=ubuntu
   - APP=examinimd DOCKEROS=ubuntu
   - APP=laghos DOCKEROS=ubuntu VERBOSE="-v"
   - APP=macsio DOCKEROS=ubuntu
@@ -59,7 +58,6 @@ env:
   - APP=tealeaf DOCKEROS=ubuntu
   - APP=thornado-mini DOCKEROS=ubuntu
   - APP=amg DOCKEROS=fedora
-  - APP="candle-benchmarks ^libjpeg ^opengl@3.4.2" DEPS="python" DOCKEROS=fedora
   - APP=examinimd DOCKEROS=fedora
   - APP=laghos DOCKEROS=fedora VERBOSE="-v"
   - APP=macsio DOCKEROS=fedora
@@ -118,7 +116,7 @@ before_install:
   - git clone --depth 1 https://github.com/spack/spack ${HOME}/docker/spack
   - source ${HOME}/docker/spack/share/spack/setup-env.sh
   - if spack info ${APP} | grep -q mantevo.org/downloads; then INSECURE="--insecure"; fi
-  - for i in $(spack list -t proxy-app | grep -v ecp-proxy-apps); do
+  - for i in $(spack list -t proxy-app | grep -vE "(ecp-proxy-apps|candle-benchmarks)"); do
       echo "Looking for $i .travis.yml"; grep -q "APP=['\"]*$i" ${HOME}/docker/proxy-ci/.travis.yml || exit 1;
     done
 
