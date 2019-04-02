@@ -139,6 +139,10 @@ after_success:
 cache:
   ccache: true
 
+branches:
+  only:
+  - master
+
 compiler:
 - gcc
 
