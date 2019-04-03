@@ -40,7 +40,6 @@ env:
   - APP=lcals DOCKEROS=ubuntu
   - APP=lulesh DOCKEROS=ubuntu
   - APP=miniaero DOCKEROS=ubuntu
-  - APP=miniamr DOCKEROS=ubuntu
   - APP=minighost DOCKEROS=ubuntu
   - APP=minimd DOCKEROS=ubuntu
   - APP=miniqmc DOCKEROS=ubuntu VERBOSE="-v"
@@ -90,7 +89,6 @@ env:
   - APP=lcals DOCKEROS=fedora
   - APP=lulesh DOCKEROS=fedora
   - APP=miniaero DOCKEROS=fedora
-  - APP=miniamr DOCKEROS=fedora
   - APP=minighost DOCKEROS=fedora
   - APP=minimd DOCKEROS=fedora
   - APP=miniqmc DOCKEROS=fedora VERBOSE="-v"
