@@ -1,0 +1,62 @@
+name: CI
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  schedule:
+    - cron:  '0 1 * * MON'
+
+jobs:
+  CheckProxies:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@master
+      - name: Get spack
+        run: |
+          git clone --depth 1 https://github.com/spack/spack "${HOME}/spack"
+          echo "::set-env name=SPACK::${HOME}/spack/bin/spack"
+      - name: Check all apps
+        run: |
+          ec=0
+          for i in $(${SPACK} list -t proxy-app | grep -vE "(ecp-proxy-apps|candle-benchmarks)"); do
+            if ! grep -E -q "\<$i\>" .github/workflows/continuous-integration-workflow.yml; then
+              echo "::error file=.github/workflows/continuous-integration-workflow.yml,line=35,col=::$i not found in continuous-integration-workflow.yml"
+              ec=1
+            fi
+          done
+          exit $ec
+  CI:
+    strategy:
+      matrix:
+        app: [amg, amg2013, aspa, branson, chatterbug, clamr, cloverleaf, cloverleaf3d, coevp, cohmm, comd, cosp2, ebms, ember, examinimd, exampm, exasp2, hacckernels, hpccg, hpgmg, kripke, laghos, lcals, lulesh, macsio, miniaero, miniamr, minife, minighost, minimd, miniqmc, minismac2d, minitri, minivite, minixyce, nekbone, nut, pathfinder, pennant, picsarlite, quicksilver, remhos, rsbench, simplemoc, snap, snbone, sw4lite, swfft, tealeaf, thornado-mini, xsbench]
+      fail-fast: false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Install ccache
+        run: |
+          sudo apt-get -qq install -y ccache
+          echo "::add-path::/usr/lib/ccache"
+      - name: Get spack
+        run: |
+          git clone --depth 1 https://github.com/spack/spack "${HOME}/spack"
+          echo "::set-env name=SPACK::${HOME}/spack/bin/spack"
+          type -p gcc
+      - name: Get time
+        id: time
+        run: echo "::set-output name=time::$(date +%s)"
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.ccache
+            ~/spack/opt/spack/linux-*
+          key: ccache-${{ matrix.app }}-${{ steps.time.outputs.time }}
+          restore-keys: ccache-${{ matrix.app }}
+      - name: Build deps
+        run: ${SPACK} install --only dependencies ${{ matrix.app }}
+      - name: Build app
+        run: ${SPACK} install -v ${{ matrix.app }}
