@@ -23,8 +23,8 @@ jobs:
         run: |
           ec=0
           for i in $(${SPACK} list -t proxy-app | grep -vE "(ecp-proxy-apps|candle-benchmarks)"); do
-            if ! grep -E -q "\<$i\>" .github/workflows/continuous-integration-workflow.yml; then
-              echo "::error file=.github/workflows/continuous-integration-workflow.yml,line=35,col=::$i not found in continuous-integration-workflow.yml"
+            if ! grep -E -q "\<$i\>" "${GITHUB_WORKSPACE}"; then
+              echo "::error file=${GITHUB_WORKSPACE},line=$(sed -n '/app:/=' ${GITHUB_WORKSPACE}),col=::$i not found in ${GITHUB_WORKSPACE}"
               ec=1
             fi
           done
