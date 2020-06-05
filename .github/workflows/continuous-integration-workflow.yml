@@ -23,8 +23,8 @@ jobs:
         run: |
           ec=0
           for i in $(${SPACK} list -t proxy-app | grep -vE "(ecp-proxy-apps|candle-benchmarks)"); do
-            if ! grep -E -q "\<$i\>" "${GITHUB_WORKSPACE}"; then
-              echo "::error file=${GITHUB_WORKSPACE},line=$(sed -n '/app:/=' ${GITHUB_WORKSPACE}),col=::$i not found in ${GITHUB_WORKSPACE}"
+            if ! grep -E -q "\<$i\>" "${GITHUB_WORKFLOW}"; then
+              echo "::error file=${GITHUB_WORKFLOW},line=$(sed -n '/app:/=' ${GITHUB_WORKFLOW}),col=::$i not found in ${GITHUB_WORKFLOW}"
               ec=1
             fi
           done
