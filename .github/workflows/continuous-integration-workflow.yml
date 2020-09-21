@@ -32,7 +32,7 @@ jobs:
   CI:
     strategy:
       matrix:
-        app: [amg, amg2013, aspa, branson, chatterbug, clamr, cloverleaf, cloverleaf3d, coevp, cohmm, comd, cosp2, cradl, ebms, ember, examinimd, exampm, exasp2, gamess-ri-mp2-miniapp, hacckernels, hpccg, hpgmg, kripke, laghos, lcals, lulesh, macsio, miniaero, miniamr, minife, minighost, minimd, miniqmc, minismac2d, minitri, minivite, minixyce, nekbone, nut, pathfinder, pennant, picsarlite, quicksilver, remhos, rsbench, simplemoc, snap, snbone, sw4lite, swfft, tealeaf, thornado-mini, xsbench]
+        app: [amg, amg2013, aspa, branson, chatterbug, clamr, cloverleaf, cloverleaf3d, coevp, cohmm, comd, cosmoflow-benchmark, cosp2, cradl, ebms, ember, examinimd, exampm, exasp2, gamess-ri-mp2-miniapp, hacckernels, hpccg, hpgmg, kripke, laghos, lcals, lulesh, macsio, miniaero, miniamr, minife, minighost, minimd, miniqmc, minismac2d, minitri, minivite, minixyce, nekbone, nut, pathfinder, pennant, picsarlite, quicksilver, remhos, rsbench, simplemoc, snap, snbone, sw4lite, swfft, tealeaf, thornado-mini, xsbench]
       fail-fast: false
     runs-on: ubuntu-latest
     steps:
